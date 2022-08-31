@@ -33,9 +33,9 @@ for (var i = 0; i < hours; i++) {
     <div class="col-sm col-md-10 d-flex description">
       <div class="input-group">
           <textarea class="form-control text-area"></textarea>
-          <div class='input-group-append'>
-          <button class='save-button d-flex justify-center align-center'>
-            <i class='far fa-save fa-2x save-icon'></i>
+          <div class="input-group-append">
+          <button class="saveBtn d-flex justify-center align-center">
+            <i class="material-icons">save</i>
           </button>
         </div>
       </div>
