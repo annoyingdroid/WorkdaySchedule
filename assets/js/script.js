@@ -9,12 +9,12 @@ var curDay = new Date().toLocaleString('en-us', {weekday: 'long'});
 var curDate = new Date().toLocaleString('en-us', {year: 'numeric', month: 'short', day: 'numeric'});
 var curTime = date.getTime();
 var clock;
-var background = Math.round(1 + (Math.random() * 8));
+var background = Math.round(1 + (Math.random() * 5));
 var imgURL = "assets/images/background\\ " + background + ".jpg";
 
 //Set random background image for header
 $("#header").css({
-    "box-shadow": "0px -210px 300px 25px rgba(255,255,255,1) inset",
+    "box-shadow": "0px -210px 450px 30px rgba(255,255,255,1) inset",
     "background-image":"url(" + imgURL + ")",
     "background-repeat": "no-repeat",
     "background-size": "cover",
@@ -25,7 +25,7 @@ $("#header").css({
 for (var i = 0; i < hours; i++) {
     events.push(hours + i +":00");
     $('.container').append(`
-    <div class="row time-block">
+    <div class="row time-block" id=${"hour" + (hours + i)}) >
 
     <div class="col-sm col-md-2 hour">
         ${hours + i + ":00"}
@@ -68,3 +68,4 @@ timeUpdate();
 clock = setInterval(timeUpdate, 1000);
 
 //EventListeners
+
