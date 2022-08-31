@@ -7,7 +7,6 @@ var events = [];
 var scheduleItems = [];
 var curDay = new Date().toLocaleString('en-us', {weekday: 'long'});
 var curDate = new Date().toLocaleString('en-us', {year: 'numeric', month: 'short', day: 'numeric'});
-var curTime = date.getTime();
 var clock;
 var background = Math.round(1 + (Math.random() * 5));
 var imgURL = "assets/images/background\\ " + background + ".jpg";
@@ -25,31 +24,36 @@ $("#header").css({
 for (var i = 0; i < hours; i++) {
     events.push(hours + i +":00");
     $('.container').append(`
-    <div class="row time-block" id=${"hour" + (hours + i)}) >
+    <row class="row time-block" index=${hours + i}>
 
-    <div class="col-sm col-md-2 hour">
-        ${hours + i + ":00"}
-    </div>
-    <div class="col-sm col-md-10 d-flex description">
-      <div class="input-group">
-          <textarea class="form-control text-area"></textarea>
-          <div class="input-group-append">
-          <button class="saveBtn d-flex justify-center align-center">
-            <i class="material-icons">save</i>
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
+        <section class="col-sm col-md-1 hour">${hours + i + ":00"}</section>
+        
+        <section class="col-sm col-md d-flex">
+            <div class="input-group">
+                <textarea class="form-control"></textarea>
+                <div class="input-group-append">
+                    <button class="saveBtn justify-center align-center">
+                        <i class="material-icons">save</i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </row>
 `);
 }
 
-//Saving an event
-
-//Saving the calendar
-
 //Check for current time & disable if time passed
-
+// $('.time-block').each(function(i, obj) {
+//     var schedTime = $(obj).attr("index");
+//     if(schedTime === date.getHours()){
+//         $(obj).find('textarea').addClass('present');
+//     } else if (schedTime < date.getHours()){
+//         $(obj).find('textarea').addClass('past').attr('disabled', 'disabled');
+//         $(obj).find('.save-button').addClass('disabled').attr('disabled', true);
+//     } else {
+//         $(obj).find('textarea').addClass('future');
+//     }
+// });
 
 //Set the current day and date
 $("#header h1 #weekday").text(curDay);
@@ -65,7 +69,11 @@ $("#header p #schedItems").text(scheduleItems.length);
 
 //Make time dynamically update
 timeUpdate();
-clock = setInterval(timeUpdate, 1000);
+setInterval(timeUpdate, 1000);
 
 //EventListeners
-
+    //Save events
+$('.saveBtn').on('click', function(event){
+    var schedTime = $(this).attr("index");
+    var schedEvent = $(this).attr("index");
+});
