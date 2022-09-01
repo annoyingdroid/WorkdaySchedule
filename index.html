@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta http-equiv="X-UA-Compatible" content="ie=chrome" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -27,16 +27,18 @@
 
   <body>
     <header id="header" class="jumbotron">
-      <h1 class="display-3">Hello, today is <b id="weekday"></b></h1>
+      <h1 class="display-3"><text class="hello"></text>, today is <b id="weekday"></b></h1>
       <h3 id="longDate"></h3>
       <br>
-      <p class="lead">You have <b id="schedItems"></b> items scheduled today</p>
+      <p class="lead">You have <b id="schedItems"></b> scheduled today</p>
       <h5 id="curTime"></h5>
     </header>
 
     <div class="container">
       <!-- Timeblocks go here -->
     </div>
+
+    <br><br><br><br>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
